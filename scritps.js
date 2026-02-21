@@ -124,7 +124,7 @@ function changeCurrencyFrom() {
     if (fromSelect.value == "dolar") {
         currencyNameFrom.innerHTML = "Dólar Americano";
         currencyImageFrom.src = "./assets/dolar.png";
-}
+    }
     else if (fromSelect.value == "euro") {
         currencyNameFrom.innerHTML = "Euro";
         currencyImageFrom.src = "./assets/euro.png";
@@ -132,17 +132,17 @@ function changeCurrencyFrom() {
     else if (fromSelect.value == "libra") {
         currencyNameFrom.innerHTML = "Libra";
         currencyImageFrom.src = "./assets/libra.png";
-    }   
+    }
     else if (fromSelect.value == "bitcoin") {
         currencyNameFrom.innerHTML = "Bitcoin";
         currencyImageFrom.src = "./assets/bitcoin.png";
-    }   
+    }
     else if (fromSelect.value == "real") {
         currencyNameFrom.innerHTML = "Real";
         currencyImageFrom.src = "./assets/real.png";
     }
     convertValues();
 }
-fromSelect.addEventListener("change", changeCurrencyFrom);  
+fromSelect.addEventListener("change", changeCurrencyFrom);
 toSelect.addEventListener("change", changeCurrencyTo);
 convertButton.addEventListener("click", convertValues);
