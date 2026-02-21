@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <img src="./assets/logo.gif" alt="logo-convert-money">
+    <img class="logo" src="./assets/logo.gif" alt="logo-convert-money">
 
     <main>
         <label>
@@ -32,22 +32,24 @@
 
         <label>
             Valor
-            <input type="number" placeholder="Digite o valor a ser convertido">
+            <input type="number" placeholder="Digite o valor a ser convertido" class="input-sem-setas">
         </label>
 
         <button>Converter</button>
 
         <section>
-            <div><img src="./assets/real.png" alt="logo-moeda-a-converter">
-                <p>Real</p>
-                <p>R$ 0,00</p>
+            <div class="currency-box">
+                <img src="./assets/real.png" alt="logo-moeda-a-converter">
+                <p class="currency">Real</p>
+                <p class="currency-value">R$ 0,00</p>
             </div>
 
-            <img src="./assets/arrow.png" alt="seta">
+            <img class="arrow-img" src="./assets/arrow.png" alt="seta" >
 
-            <div><img src="./assets/dolar.png" alt="logo-moeda-convertida">
-                <p>Dólar Americano</p>
-                <p>US$ 0,00</p>
+            <div class="currency-box">
+                <img src="./assets/dolar.png" alt="logo-moeda-convertida">
+                <p class="currency">Dólar Americano</p>
+                <p class="currency-value">US$ 0,00</p>
             </div>
         </section>
     </main>
