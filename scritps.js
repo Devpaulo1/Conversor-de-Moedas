@@ -8,6 +8,8 @@ function convertValues() {
 
     const dolarToday = 5.2
     const euroToday = 6.2
+    const libraToday = 7.2
+    const bitcoinToday = 350000
 
     if (currencySelect.value == "dolar") {
         // Se o select estiver selecionado o valor de dolar, entre aqui.
@@ -17,20 +19,32 @@ function convertValues() {
         }).format(inputCurrencyValue / dolarToday);
 
     } else if (currencySelect.value == "euro") {
-       
+
         // Se o select estiver selecionado o valor de euro, entre aqui.
         currencyValueConverted.innerHTML = new Intl.NumberFormat("de-DE", {
             style: "currency",
             currency: "EUR",
         }).format(inputCurrencyValue / euroToday);
+
+    } else if (currencySelect.value == "libra") {
+        // Se o select estiver selecionado o valor de libra, entre aqui.
+        currencyValueConverted.innerHTML = new Intl.NumberFormat("en-GB", {
+            style: "currency",
+            currency: "GBP",
+        }).format(inputCurrencyValue / libraToday);
+
+    } else if (currencySelect.value == "bitcoin") {
+        // Se o select estiver selecionado o valor de bitcoin, entre aqui.
+        const convertedValue = inputCurrencyValue / bitcoinToday;
+        currencyValueConverted.innerHTML = convertedValue.toFixed(6);
     }
 
     currencyValueToConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
         style: "currency",
         currency: "BRL"
     }).format(inputCurrencyValue);
-
 }
+
 
 function changeCurrency() {
     const currencyName = document.getElementById("currency-name");
@@ -41,10 +55,19 @@ function changeCurrency() {
         currencyImage.src = "./assets/dolar.png";
 
     }
-
     else if (currencySelect.value == "euro") {
         currencyName.innerHTML = "Euro";
         currencyImage.src = "./assets/euro.png";
+    }
+
+    else if (currencySelect.value == "libra") {
+        currencyName.innerHTML = "Libra";
+        currencyImage.src = "./assets/libra.png";
+    }
+
+    else if (currencySelect.value == "bitcoin") {
+        currencyName.innerHTML = "Bitcoin";
+        currencyImage.src = "./assets/bitcoin.png";
     }
 
     convertValues();
