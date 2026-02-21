@@ -41,16 +41,6 @@ input {
     cursor: pointer;
 }
 
-.input-sem-setas::-webkit-outer-spin-button,
-.input-sem-setas::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-.input-sem-setas {
-    -moz-appearance: textfield;
-}
-
 button {
     background: #772FD2;
     border: none;
@@ -98,7 +88,7 @@ section {
     color: #777777;
 }
 
-.currency-value {
+.currency-value, .currency-value-to-convert {
     font-size: 20px;
     font-weight: 700;
     color: #555555;
