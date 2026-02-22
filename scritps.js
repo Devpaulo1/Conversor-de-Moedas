@@ -4,17 +4,31 @@ const toSelect = document.querySelector(".currency-select-to");
 const currencyValueToConvert = document.querySelector(".currency-value-to-convert");
 const currencyValueConverted = document.querySelector(".currency-value");
 
+let dolarToday = 0;
+let euroToday = 0;
+let libraToday = 0;
+let bitcoinToday = 0;
+let realToday = 1;
+
+async function getCurrencies() {
+    try {
+        const response = await fetch("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,GBP-BRL,BTC-BRL");
+        const data = await response.json();
+        dolarToday = Number(data.USDBRL.bid);
+        euroToday = Number(data.EURBRL.bid);
+        libraToday = Number(data.GBPBRL.bid);
+        bitcoinToday = Number(data.BTCBRL.bid);
+        console.log("Moedas atualizadas ✅");
+
+    } catch (error) {
+        console.log("Erro ao buscar moedas:", error);
+    }
+}
+
 function convertValues() {
     const inputCurrencyValue = Number(document.querySelector(".input-currency").value); //valor digitado no input
     const fromCurrency = fromSelect.value;
     const toCurrency = toSelect.value;
-
-    const dolarToday = 5.2
-    const euroToday = 6.2
-    const libraToday = 7.2
-    const bitcoinToday = 350000
-    const realToday = 1
-
 
     currencyValueToConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
         style: "currency",
@@ -146,3 +160,10 @@ function changeCurrencyFrom() {
 fromSelect.addEventListener("change", changeCurrencyFrom);
 toSelect.addEventListener("change", changeCurrencyTo);
 convertButton.addEventListener("click", convertValues);
+
+
+
+window.onload = () => {
+    getCurrencies();
+    setInterval(getCurrencies, 300000); // 5 minutos
+};
